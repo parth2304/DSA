@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#define MAX 100000  
+void removeAdj(char* s){
+    int top=-1;
+    char stack[strlen(s)+1];
+    for (int i = 0; s[i] != '\0'; i++) {
+        if (top != -1 && stack[top] == s[i]) {
+            top--;
+        } 
+        else{
+            stack[++top] = s[i];
+        }
+    }
+    stack[top + 1] = '\0';
+    printf("%s", stack);
+}
+
+int main() {
+    char s[100001];
+    scanf("%s", s);
+    removeAdj(s);
+    return 0;
+}
